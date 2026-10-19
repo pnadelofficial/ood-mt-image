@@ -1,0 +1,16 @@
+# Python dependencies for the ood-mt Streamlit app (template/app.py, template/utils.py).
+# torch is NOT listed here: the Dockerfile installs the CUDA 12.6 build from the
+# PyTorch index first, and nothing below asks pip to replace it.
+ 
+# NLLB-200 tokenizer + seq2seq model (AutoTokenizer / AutoModelForSeq2SeqLM)
+transformers==5.20.1
+# NLLB ships a SentencePiece model; needed whenever the tokenizer has to be
+# built from sentencepiece.bpe.model rather than a ready-made tokenizer.json
+sentencepiece==0.2.2
+ 
+# Web front end
+streamlit==1.66.0
+ 
+# If you later load the model with device_map="auto" or similar, add:
+# accelerate==1.15.0
+ 
